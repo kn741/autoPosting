@@ -20,7 +20,7 @@ def load_credentials():
             credentials = json.load(file)
             return credentials
     except FileNotFoundError:
-        return None
+        return {"fbUsername": "", "fbPassword": "", "threadsUsername": "", "threadsPassword": "", "twitterUsername": "", "twitterPassword": "", "twitterVerify": ""}
 
 if __name__ == '__main__':
     credentials = load_credentials()
