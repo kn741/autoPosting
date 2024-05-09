@@ -47,14 +47,18 @@ class fbLoginModule:
         
         try:
             for i in elementPath:
-                postingElement = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, i)))
+                postingElement = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, i)))
                 postingElement.click()
         except:
             print("exception occurred.")
             driver.quit()
             return False
-        postingElement = WebDriverWait(driver, 10).until(lambda d: d.find_element(By.XPATH,"/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[2]/div[1]/div[1]/div[1]/div/div/div[1]"))
+        postingElement = WebDriverWait(driver, 60).until(lambda d: d.find_element(By.XPATH,"/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[2]/div[1]/div[1]/div[1]/div/div/div[1]"))
         postingElement.send_keys(settings["postingMessage"])
         time.sleep(3)
-        postingElement = WebDriverWait(driver, 10).until(lambda d: d.find_element(By.XPATH,"/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[3]/div[2]/div/div/div[1]/div/span/span"))
-        # postingElement.click()
+        postingElement = WebDriverWait(driver, 60).until(lambda d: d.find_element(By.XPATH,"/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[3]/div[2]/div/div/div[1]/div/span/span"))
+        postingElement.click()
+        
+if __name__ == "__main__":
+        module = fbLoginModule("uraccount","urpassword","私人","Hello World!")
+        module.login()
