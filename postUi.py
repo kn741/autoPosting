@@ -44,6 +44,7 @@ class Ui_PlatformPoster(object):
         self.postText = QtWidgets.QTextEdit(parent=self.widget1)
         self.postText.setLineWidth(1)
         self.postText.setObjectName("postText")
+        self.postText.setPlaceholderText("輸入貼文內容...")
         self.verticalLayout_5.addWidget(self.postText)
         self.pushButton = QtWidgets.QPushButton(parent=self.widget1)
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
@@ -370,15 +371,14 @@ class Ui_PlatformPoster(object):
 
     def buttonClicked(self):
         print("button clicked")
+        threads = []
+        
         if self.checkBoxFB.isChecked():
             print(self.comboBoxFB.currentText())
             if self.accountCheck(self.fbAccount.text(),self.fbPassword.text()):
                 print("FB selected")
-                fbmodel = fbLoginModule(self.fbAccount.text(),self.fbPassword.text(),self.comboBoxFB.currentText())
-                try:
-                    threading.Thread(target=fbmodel.login).start()
-                except:
-                    print("FB login failed")
+                fbmodel = fbLoginModule(self.fbAccount.text(),self.fbPassword.text(),self.comboBoxFB.currentText(),self.postText.toPlainText())
+                threads.append(threading.Thread(target=fbmodel.login))
             else:
                 print("empty FB account or password")
         else:
@@ -400,7 +400,10 @@ class Ui_PlatformPoster(object):
                 print("empty Twitter account or password")
         else:
             print("Twitter unselected")
-
+            
+        threads[0].start()
+        threads[0].join()
+        print("threads finished")
 
     def accountCheck(self,account,password):
         if account == "" or password == "":

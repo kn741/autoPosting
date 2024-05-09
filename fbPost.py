@@ -7,10 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 class fbLoginModule:
-    def __init__(self,account,password,postingSettings):
-        self.settings = self.getSettings(account,password,postingSettings)
+    def __init__(self,account,password,postingSettings,postingMessage):
+        self.settings = self.getSettings(account,password,postingSettings,postingMessage)
         
-    def getSettings(self,account,password,postingSettings):
+    def getSettings(self,account,password,postingSettings,postingMessage):
         postingPath = {}
         postingPath["私人"] = "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[5]/div/div[1]/div[2]/div[1]/div/div/div/span"
         postingPath["朋友"] = "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[1]/div/div/div[1]/span"
@@ -19,7 +19,7 @@ class fbLoginModule:
         settings["account"] = account
         settings["password"] = password
         settings["postingSettings"] = postingPath[postingSettings]
-        settings["postingMessage"] = "Hello, this is a test message."
+        settings["postingMessage"] =  postingMessage
         return settings
 
     def login(self):
