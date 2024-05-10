@@ -1,6 +1,8 @@
 # library requirements
 ### PyQt6
+#### pip install PyQt6
 ### selenium
+#### pip install selenium
 
 # usage
 ### just execute main.py
