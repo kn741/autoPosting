@@ -10,15 +10,15 @@
 # about the acount & password info.
 ### your acount & password will store in the credentials.json for future use, delete them anytime if you want.
 
-#函示庫需求
+# 函示庫需求
 
 ### PyQt6
 #### pip install PyQt6
 ### selenium
 #### pip install selenium
 
-#使用方式
-###執行 main.py , 然後在分頁設定好欲登入平台的帳號密碼 , 勾選發送平台及輸入貼文內容最後按下發送鈕即可發送
+# 使用方式
+### 執行 main.py , 然後在分頁設定好欲登入平台的帳號密碼 , 勾選發送平台及輸入貼文內容最後按下發送鈕即可發送
 
-#關於帳號密碼
-####你輸入的帳號密碼會被存在credentials.json裡以便下次使用，這個檔案隨時都可以刪除
+# 關於帳號密碼
+#### 你輸入的帳號密碼會被存在credentials.json裡以便下次使用，這個檔案隨時都可以刪除
