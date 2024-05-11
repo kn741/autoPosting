@@ -10,7 +10,7 @@
 # about the acount & password info.
 ### your acount & password will store in the credentials.json for future use, delete them anytime if you want.
 
-# 函示庫需求
+# 函式庫需求
 
 ### PyQt6
 #### pip install PyQt6
